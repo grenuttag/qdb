@@ -4,11 +4,15 @@ import { Liquid } from "liquidjs"
 import PostController from "./controllers/Post"
 import AccountController from "./controllers/Account"
 
-let engine = new Liquid()
+let engine = new Liquid({
+  root: __dirname,
+  extname: ".liquid"
+})
+
 let app = express()
 
 app.engine("liquid", engine.express())
-app.set("views", "./views")
+app.set("views", "../views")
 app.set("view engine", "liquid")
 
 app.use("/quotes", PostController)

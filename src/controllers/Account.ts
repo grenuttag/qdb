@@ -1,7 +1,8 @@
 import Router from "express"
-import { PrismaClient } from "@prisma/client"
 
+import { PrismaClient } from "@prisma/client"
 let prisma = new PrismaClient()
+
 let Account = Router()
 
 Account.get("/register", async (request, response) => {

@@ -1,0 +1,9 @@
+{% layout 'layout' %}
+
+<h1>Quote #{{ post.id }}</h1>
+
+{% for line in post.content %}
+<div>
+  <strong>{{ line.speaker }}</strong>: {{ line.message }}
+</div>
+{% endfor %}

@@ -1,7 +1,8 @@
 import Router from "express"
-import { PrismaClient } from "@prisma/client"
 
+import { PrismaClient } from "@prisma/client"
 let prisma = new PrismaClient()
+
 let Post = Router()
 
 Post.get("/", async (_request, response) => {
@@ -9,7 +10,7 @@ Post.get("/", async (_request, response) => {
     where: { published: true },
   })
 
-  response.render("index", { posts })
+  response.render("posts/index", { posts })
 })
 
 Post.get("/:id", async (request, response) => {
@@ -22,8 +23,9 @@ Post.get("/:id", async (request, response) => {
     },
   })
 
+
   if (post) {
-    response.json(post)
+    response.render("posts/show", { post })
   } else {
     response.status(404).send("Quote not found")
   }
