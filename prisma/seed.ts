@@ -7,6 +7,7 @@ async function main() {
     update: {},
     create: {
       username: "grenuttag",
+      email: "me@grenuttag.com",
       role: "ADMINISTRATOR",
       profile: {
         create: {
