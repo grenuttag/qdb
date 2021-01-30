@@ -9,7 +9,7 @@ Post.get("/", async (_request, response) => {
     where: { published: true },
   })
 
-  response.json(posts)
+  response.render("index", { posts })
 })
 
 Post.get("/:id", async (request, response) => {
@@ -18,8 +18,8 @@ Post.get("/:id", async (request, response) => {
     where: { id },
     include: {
       community: true,
-      participants: true
-    }
+      participants: true,
+    },
   })
 
   if (post) {
