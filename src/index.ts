@@ -3,6 +3,7 @@ import { Liquid } from "liquidjs"
 
 import PostController from "./controllers/Post"
 import AccountController from "./controllers/Account"
+import ProfileController from "./controllers/Profile"
 
 let engine = new Liquid({
   root: __dirname,
@@ -17,5 +18,6 @@ app.set("view engine", "liquid")
 
 app.use("/quotes", PostController)
 app.use("/accounts", AccountController)
+app.use("/profiles", ProfileController)
 
 app.listen(8000, () => console.log("Server is running"))
