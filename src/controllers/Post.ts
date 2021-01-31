@@ -23,7 +23,6 @@ Post.get("/:id", async (request, response) => {
     },
   })
 
-
   if (post) {
     response.render("posts/show", { post })
   } else {
