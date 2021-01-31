@@ -1,7 +1,6 @@
 import Router from "express"
 
-import { PrismaClient } from "@prisma/client"
-let prisma = new PrismaClient()
+import prisma from "../config/db"
 
 let Account = Router()
 
