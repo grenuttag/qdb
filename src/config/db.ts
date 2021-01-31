@@ -1,7 +1,8 @@
 import { PrismaClient } from "@prisma/client"
 
 let prisma = new PrismaClient({
-  log: process.env.NODE_ENV === "production" ? [] : ["query", "info", "warn"]
+  log: ["info", "warn"],
+  errorFormat: "pretty"
 })
 
 export default prisma

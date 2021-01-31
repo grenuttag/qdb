@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client"
-let prisma = new PrismaClient()
+import { hashSync } from "bcrypt"
+import prisma from "../src/config/db"
 
 async function main() {
   let admin = await prisma.user.create({
     data: {
       username: "grenuttag",
-      password: "test1234",
+      password: hashSync("test1234", 12),
       email: "me@grenuttag.com",
       role: "ADMINISTRATOR",
       profile: {
@@ -62,6 +62,8 @@ async function main() {
       communityId: 1
     },
   })
+
+  console.log({ admin, community1, community2, community3, testMessage })
 }
 
 main()

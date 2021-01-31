@@ -13,6 +13,13 @@ enum Role {
   ADMINISTRATOR
 }
 
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expires   DateTime
+}
+
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
@@ -26,10 +33,10 @@ model User {
 
 model Profile {
   id   Int    @id @default(autoincrement())
-  name String
-  slug String
+  name String @unique
+  slug String @unique
 
-  uniqueId String @unique
+  uniqueId String? @unique
 
   user   User? @relation(fields: [userId], references: [id])
   userId Int?
