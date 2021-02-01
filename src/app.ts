@@ -16,6 +16,8 @@ app.engine("liquid", engine.express())
 app.set("views", "../views")
 app.set("view engine", "liquid")
 
+app.use(express.urlencoded({ extended: true }))
+
 app.use("/posts", PostController)
 app.use("/accounts", AccountController)
 app.use("/profiles", ProfileController)
